@@ -1,0 +1,76 @@
+### **Task 1: Create a bucket**
+You need to create a bucket for the storage of the photographs.
+
+`
+> Navigation Menu
+> Storage 
+> + New Bucket 
+     > _Name your Bucket : ( #GCP PROJECT ID)
+     > continue 
+     > (Leave all other fields as **DEFAULT**)
+     > CREATE BUCKET._
+
+`
+
+### **Task 2: Create a Pub/Sub topic**
+Create a Pub/Sub topic for the Cloud Function to send messages.
+
+`
+> Navigation Menu
+> Pub/Sub
+> + Create Topic
+     > _TopicID : gcptopic
+     > (Leave all other fields as **DEFAULT**)
+     > CREATE TOPIC._
+
+`
+
+### **Task 3: Create the thumbnail Cloud Function**
+Create a Cloud Function that executes every time an object is created in the bucket you created in task 1. The function is written in Node.js 14. Make sure you set the Entry point (Function to execute) to thumbnail and Trigger to Cloud Storage.
+
+`
+> Navigation Menu
+> Cloud Functions 
+> Create Function 
+     > _Basics > Functions Name : cloudfunction
+               > Region         : us-east1
+               > Trigger        > Trigger Type    : Cloud Storage 
+                                > Event Type      : Finalize/Create 
+                                > Bucket (Browse) : (Select your ProjectID)
+                                >SAVE
+               > NEXT 
+               
+               > index.js       > Entry Point (Rename your File) : thumbnail
+               > (Copy the code given for index,js from Qwiklab and replace the text REPLACE_WITH_YOUR_TOPIC ID with the Topic ID you created in task 
+                  **Your line 16 will look something like: const topicName = "gcptopic" ;** )
+                  
+               > package.json    > (Copy the code given for package.json from qwiklab and REPLACE it.)
+     
+     > DEPLOY
+      (Take a break this step might take upto 10 minutes.)
+
+
+(**image https://storage.googleapis.com/cloud-training/gsp315/map.jpg;** download the image to your machine and then upload that file to your bucket.
+You will see a thumbnail image appear shortly afterwards (use REFRESH in the bucket details).
+
+
+> Navigation Menu 
+> Strorage 
+> Open (Bucket with your GCP ProjectID)
+> upload files 
+> Browse your device and Upload the pic your Downloaded 
+`
+
+
+### **Task 4: Remove the previous cloud engineer**
+You need to create a bucket for the storage of the photographs.
+
+`
+> Navigation Menu
+> IAM & Admin 
+> IAM
+     ( there are two users, one is your account (with the role of Owner) and the other is the previous cloud engineer (with the role of Viewer)
+     > SELECT the LAST User 
+     > REMOVE
+     > OK
+`
