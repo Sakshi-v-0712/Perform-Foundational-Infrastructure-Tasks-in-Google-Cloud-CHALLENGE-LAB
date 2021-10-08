@@ -6,7 +6,7 @@
 
 Create a bucket for storing the photographs.
 Create a Pub/Sub topic that will be used by a Cloud Function you create.
-Create a Cloud Function.
+Create a Cloud Function.    
 Remove the previous cloud engineer’s access from the memories project.
 Some Jooli Inc. standards you should follow:
 
